@@ -33,7 +33,7 @@ plugins {
     id 'com.adarshr.test-logger' version '2.1.0'
 
     // Add a Git library, which we use to automatically add the remote for the skeleton repo.
-    id 'org.ajoberstar.grgit' version '4.1.0'
+    id 'org.ajoberstar.grgit' version '4.1.1'
 }
 
 import org.jetbrains.gradle.ext.ActionDelegationConfig
@@ -71,6 +71,7 @@ allprojects {
             url 'https://jitpack.io'
             content {
                 includeGroup 'com.github.ArlindNocaj'
+                includeGroup 'com.github.kevin-wayne'
             }
         }
     }
@@ -95,7 +96,7 @@ allprojects {
     dependencies {
         implementation rootProject
         // We use some convenience classes from a library provided by Princeton.
-        implementation group: 'edu.princeton.cs', name: 'algs4', version: '1.0.4'
+        implementation 'com.github.kevin-wayne:algs4:master'
 
         // Our tests extend the BaseTest class in the root project.
         testImplementation rootProject
@@ -178,7 +179,7 @@ tasks.register('addSkeletonRemote') {
     }
     doLast {
         // Change the quarter URL here
-        grgit.remote.add(name: 'skeleton', url: 'git@gitlab.cs.washington.edu:cse373-25wi-stdents/skeleton.git')
+        grgit.remote.add(name: 'skeleton', url: 'git@gitlab.cs.washington.edu:cse373-25wi-students/skeleton.git')
     }
 }
 
