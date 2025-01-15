@@ -22,16 +22,35 @@ public class LinkedIntListProblems {
      * Reverses the 3 elements in the `LinkedIntList` (assume there are exactly 3 elements).
      */
     public static void reverse3(LinkedIntList list) {
-        // TODO replace this with your code
-        throw new UnsupportedOperationException("Not implemented yet.");
+        ListNode first = list.front;
+        ListNode second = first.next;
+        ListNode third = second.next;
+
+        third.next = second;
+        second.next = first;
+        first.next = null;
+
+        list.front = third;
+
+
     }
 
     /**
      * Moves the first element of the input list to the back of the list.
      */
     public static void firstToLast(LinkedIntList list) {
-        // TODO replace this with your code
-        throw new UnsupportedOperationException("Not implemented yet.");
+      if (list.front == null || list.front.next == null) {
+          return;
+        }
+      ListNode temp = list.front;
+      list.front = list.front.next;
+      ListNode front = list.front;
+      while (front.next != null){
+          front = front.next;
+      }
+      front.next = temp;
+      temp.next = null;
+
     }
 
     /**
@@ -40,7 +59,12 @@ public class LinkedIntListProblems {
      */
     public static LinkedIntList concatenate(LinkedIntList a, LinkedIntList b) {
         // Hint: you'll need to use the 'new' keyword to construct new objects.
-        // TODO replace this with your code
-        throw new UnsupportedOperationException("Not implemented yet.");
+
+        LinkedIntList result = new LinkedIntList();
+
+        if (a.front == null && b.front == null){
+            return result;
+        }
+
     }
 }

@@ -28,16 +28,41 @@ public class IntTreeProblems {
      * (The root node is treated as having depth 1.)
      */
     public static int depthSum(IntTree tree) {
-        // TODO replace this with your code
-        throw new UnsupportedOperationException("Not implemented yet.");
+        if (tree.overallRoot ==null){
+            return 0;
+        }
+        return depthSumHelper(tree.overallRoot, 1);
+
+    }
+    private static int depthSumHelper(IntTreeNode root, int depth){
+
+        if (root==null){
+            return 0;
+        }
+        return (root.data * depth) + depthSumHelper(root.left, depth + 1)
+            + depthSumHelper(root.right, depth + 1);
+
     }
 
     /**
      * Removes all leaf nodes from the given tree.
      */
     public static void removeLeaves(IntTree tree) {
-        // TODO replace this with your code
-        throw new UnsupportedOperationException("Not implemented yet.");
+        if (tree.overallRoot == null){
+            return;
+        }
+        tree.overallRoot = removeLeavesHelper(tree.overallRoot);
+    }
+    private static IntTreeNode removeLeavesHelper(IntTreeNode root){
+        if (root == null){
+            return null;
+        }
+        if (root.left ==null && root.right ==null){
+            return null;
+        }
+        root.left = removeLeavesHelper(root.left);
+        root.right = removeLeavesHelper(root.right);
+        return root;
     }
 
     /**
@@ -45,7 +70,27 @@ public class IntTreeProblems {
      * (The resulting tree is still a BST.)
      */
     public static void trim(IntTree tree, int min, int max) {
-        // TODO replace this with your code
-        throw new UnsupportedOperationException("Not implemented yet.");
+        if (tree.overallRoot==null){
+            return;
+        }
+
+        tree.overallRoot = trimHelper(tree.overallRoot, min, max);
+    }
+
+    private static IntTreeNode trimHelper(IntTreeNode root, int min, int max){
+        if (root==null){
+            return null;
+        }
+
+        if (root.data < min){
+            return trimHelper(root.right, min, max);
+        }
+
+        if (root.data > max){
+            return trimHelper(root.left, min, max);
+        }
+        root.left = trimHelper(root.left, min, max);
+        root.right = trimHelper(root.right, min, max);
+        return root;
     }
 }

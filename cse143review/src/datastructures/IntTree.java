@@ -30,6 +30,7 @@ public class IntTree implements Iterable<Integer> {
     public IntTreeNode overallRoot;
     private int hashCode;
 
+
     public IntTree() {
         hashCode = 0;
         overallRoot = null;
