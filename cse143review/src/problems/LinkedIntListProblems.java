@@ -66,7 +66,34 @@ public class LinkedIntListProblems {
             return result;
         }
 
+        if (a.front == null){
+            return b;
+        }
+        if (b.front ==null){
+            return a;
+        }
+        result.front = new ListNode(a.front.data);
+        ListNode curr = result.front;
+        ListNode aCurr = a.front.next;
 
-        throw new UnsupportedOperationException("Not implemented yet.");
+        while (aCurr != null){
+            curr.next = new ListNode(aCurr.data);
+            aCurr = aCurr.next;
+            curr = curr.next;
+        }
+
+        ListNode bCurr = b.front;
+        while(bCurr != null){
+            curr.next = new ListNode(bCurr.data);
+            bCurr = bCurr.next;
+            curr= curr.next;
+        }
+        return result;
+
+
+
+
+
+
     }
 }
