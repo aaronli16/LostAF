@@ -39,9 +39,9 @@ public class ArrayProblems {
         if (array.length==0){
             return array;
         }
-        int[] reverseArray = new int[array.length ];
+        int[] reverseArray = new int[array.length];
         int count = 0;
-        for (int i = array.length - 1; i >=0 ;i--){
+        for (int i = array.length - 1; i >=0; i--){
             reverseArray[count] = array[i];
             count++;
         }

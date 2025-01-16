@@ -83,7 +83,7 @@ public class LinkedIntListProblems {
         }
 
         ListNode bCurr = b.front;
-        while(bCurr != null){
+        while (bCurr != null){
             curr.next = new ListNode(bCurr.data);
             bCurr = bCurr.next;
             curr= curr.next;
