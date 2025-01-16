@@ -14,14 +14,14 @@ public class MapProblems {
      */
     public static boolean contains3(List<String> list) {
         Map<String, Integer> wordCount = new HashMap<>();
-        for (String str: list){
-            if (!wordCount.containsKey(str)){
+        for (String str: list) {
+            if (!wordCount.containsKey(str)) {
                 wordCount.put(str, 1);
             }
             else {
                 wordCount.put(str, wordCount.get(str) + 1);
             }
-            if (wordCount.get(str) >= 3){
+            if (wordCount.get(str) >= 3) {
                 return true;
             }
         }
@@ -33,8 +33,8 @@ public class MapProblems {
      */
     public static Map<String, Integer> intersect(Map<String, Integer> m1, Map<String, Integer> m2) {
         Map<String, Integer> result = new HashMap<>();
-        for (String name: m1.keySet()){
-            if (m1.get(name) == m2.get(name)){
+        for (String name: m1.keySet()) {
+            if (m1.get(name) == m2.get(name)) {
                 result.put(name, m1.get(name));
             }
 

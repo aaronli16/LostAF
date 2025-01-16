@@ -15,7 +15,7 @@ public class ArrayProblems {
      */
     public static String toString(int[] array) {
 
-        if (array.length==0){
+        if (array.length==0) {
             return "[]";
         }
         String stringArray = "[";
@@ -36,12 +36,12 @@ public class ArrayProblems {
      * Does not modify the input array.
      */
     public static int[] reverse(int[] array) {
-        if (array.length==0){
+        if (array.length==0) {
             return array;
         }
         int[] reverseArray = new int[array.length];
         int count = 0;
-        for (int i = array.length - 1; i >=0; i--){
+        for (int i = array.length - 1; i >=0; i--) {
             reverseArray[count] = array[i];
             count++;
         }
@@ -52,11 +52,11 @@ public class ArrayProblems {
      * Rotates the values in the array to the right.
      */
     public static void rotateRight(int[] array) {
-        if (array.length ==0){
+        if (array.length ==0) {
             return;
         }
         int last = array[array.length - 1];
-        for (int i = array.length - 1; i > 0; i--){
+        for (int i = array.length - 1; i > 0; i--) {
             array[i] = array[i -1];
         }
         array[0] = last;

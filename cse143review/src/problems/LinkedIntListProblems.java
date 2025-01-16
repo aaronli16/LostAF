@@ -45,7 +45,7 @@ public class LinkedIntListProblems {
       ListNode temp = list.front;
       list.front = list.front.next;
       ListNode front = list.front;
-      while (front.next != null){
+      while (front.next != null) {
           front = front.next;
       }
       front.next = temp;
@@ -62,28 +62,28 @@ public class LinkedIntListProblems {
 
         LinkedIntList result = new LinkedIntList();
 
-        if (a.front == null && b.front == null){
+        if (a.front == null && b.front == null) {
             return result;
         }
 
-        if (a.front == null){
+        if (a.front == null) {
             return b;
         }
-        if (b.front ==null){
+        if (b.front ==null) {
             return a;
         }
         result.front = new ListNode(a.front.data);
         ListNode curr = result.front;
         ListNode aCurr = a.front.next;
 
-        while (aCurr != null){
+        while (aCurr != null) {
             curr.next = new ListNode(aCurr.data);
             aCurr = aCurr.next;
             curr = curr.next;
         }
 
         ListNode bCurr = b.front;
-        while (bCurr != null){
+        while (bCurr != null) {
             curr.next = new ListNode(bCurr.data);
             bCurr = bCurr.next;
             curr= curr.next;
