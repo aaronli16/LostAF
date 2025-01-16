@@ -35,7 +35,6 @@ public class IntTreeProblems {
 
     }
     private static int depthSumHelper(IntTreeNode root, int depth){
-
         if (root==null){
             return 0;
         }

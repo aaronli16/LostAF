@@ -66,5 +66,7 @@ public class LinkedIntListProblems {
             return result;
         }
 
+
+        throw new UnsupportedOperationException("Not implemented yet.");
     }
 }
