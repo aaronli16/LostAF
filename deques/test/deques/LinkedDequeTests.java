@@ -1,5 +1,7 @@
 package deques;
 
+import java.util.Arrays;
+
 public class LinkedDequeTests extends BaseDequeTests {
     public static <T> LinkedDequeAssert<T> assertThat(LinkedDeque<T> deque) {
         return new LinkedDequeAssert<>(deque);
@@ -17,4 +19,12 @@ public class LinkedDequeTests extends BaseDequeTests {
     }
 
     // You can write additional tests here if you only want them to run for LinkedDequeTests and not ArrayDequeTests
+    void print() {
+        Deque<String> a = new LinkedDeque<>();
+        a.addFirst("a");
+        a.addFirst("b");
+        a.addFirst("c");
+
+        System.out.print(Arrays.toString(a.toArray()));
+    }
 }

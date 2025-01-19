@@ -236,4 +236,17 @@ public abstract class BaseDequeTests extends BaseTest {
         assertThat(actual).isEqualTo(1);
         checkInvariants(deque);
     }
+
+    @Test
+    void removeLastTest() {
+        Deque<Integer> deque = createDeque();
+        deque.addFirst(0);
+        deque.addFirst(1);
+        deque.addFirst(2);
+        deque.addFirst(3);
+        deque.addFirst(4);
+        deque.addFirst(5);
+
+        assertThat(deque.removeLast()).isEqualTo(0);
+    }
 }

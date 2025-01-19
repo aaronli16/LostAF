@@ -13,45 +13,58 @@ public class LinkedDeque<T> extends AbstractDeque<T> {
 
     public LinkedDeque() {
         size = 0;
-        // TODO: replace this with your code
+        front = new Node<>(null, null, null);
+        back = new Node<>(null, null, null);
+        front.next = back;
+        back.prev = front;
     }
 
     public void addFirst(T item) {
+        Node<T> b = new Node<>(item, front, front.next);
+        front.next.prev = b;
+        front.next = b;
         size += 1;
-        // TODO: replace this with your code
-        throw new UnsupportedOperationException("Not implemented yet.");
     }
 
     public void addLast(T item) {
+        Node<T> b = new Node<>(item, back.prev, back);
+        back.prev.next = b;
+        back.prev = b;
         size += 1;
-        // TODO: replace this with your code
-        throw new UnsupportedOperationException("Not implemented yet.");
     }
 
     public T removeFirst() {
         if (size == 0) {
             return null;
         }
+        T result = front.next.value;
+        front.next.next.prev = front;
+        front.next = front.next.next;
         size -= 1;
-        // TODO: replace this with your code
-        throw new UnsupportedOperationException("Not implemented yet.");
+        return result;
     }
 
     public T removeLast() {
         if (size == 0) {
             return null;
         }
+        T result = back.prev.value;
+        back.prev.prev.next = back;
+        back.prev = back.prev.prev;
         size -= 1;
-        // TODO: replace this with your code
-        throw new UnsupportedOperationException("Not implemented yet.");
+        return result;
     }
 
     public T get(int index) {
         if ((index >= size) || (index < 0)) {
             return null;
         }
-        // TODO: replace this with your code
-        throw new UnsupportedOperationException("Not implemented yet.");
+        T a = front.value;
+        Node<T> curr = front.next;
+        for (int i = 0; i < index; i++) {
+            curr = curr.next;
+        }
+        return curr.value;
     }
 
     public int size() {
