@@ -61,13 +61,13 @@ public class LinkedDeque<T> extends AbstractDeque<T> {
         }
         if (index < size / 2) {
             Node<T> curr = front.next;
-            for (int i = 0; i <= index; i++) {
+            for (int i = 0; i < index; i++) {
                 curr = curr.next;
             }
             return curr.value;
         } else {
             Node<T> curr = back.prev;
-            for (int i = index; i > 0; i--) {
+            for (int i = size - 1; i > index; i--) {
                 curr = curr.prev;
             }
             return curr.value;
