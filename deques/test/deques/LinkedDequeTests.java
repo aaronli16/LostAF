@@ -19,12 +19,4 @@ public class LinkedDequeTests extends BaseDequeTests {
     }
 
     // You can write additional tests here if you only want them to run for LinkedDequeTests and not ArrayDequeTests
-    void print() {
-        Deque<String> a = new LinkedDeque<>();
-        a.addFirst("a");
-        a.addFirst("b");
-        a.addFirst("c");
-
-        System.out.print(Arrays.toString(a.toArray()));
-    }
 }

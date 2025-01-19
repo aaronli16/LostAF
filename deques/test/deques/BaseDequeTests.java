@@ -240,13 +240,23 @@ public abstract class BaseDequeTests extends BaseTest {
     @Test
     void removeLastTest() {
         Deque<Integer> deque = createDeque();
-        deque.addFirst(0);
-        deque.addFirst(1);
-        deque.addFirst(2);
-        deque.addFirst(3);
-        deque.addFirst(4);
-        deque.addFirst(5);
-
-        assertThat(deque.removeLast()).isEqualTo(0);
+        deque.addLast(1);
+        deque.addLast(2);
+        deque.addLast(3);
+        deque.addLast(4);
+        deque.addLast(5);
+        deque.addLast(6);
+        deque.addLast(7);
+        deque.addLast(8);
+        deque.addLast(9);
+        assertThat(deque.removeLast()).isEqualTo(9);
+        assertThat(deque.removeLast()).isEqualTo(8);
+        assertThat(deque.removeLast()).isEqualTo(7);
+        assertThat(deque.removeLast()).isEqualTo(6);
+        assertThat(deque.removeLast()).isEqualTo(5);
+        assertThat(deque.removeLast()).isEqualTo(4);
+        assertThat(deque.removeLast()).isEqualTo(3);
+        assertThat(deque.removeLast()).isEqualTo(2);
+        assertThat(deque.removeLast()).isEqualTo(1);
     }
 }
