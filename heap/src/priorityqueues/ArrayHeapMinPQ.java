@@ -20,7 +20,7 @@ public class ArrayHeapMinPQ<T> implements ExtrinsicMinPQ<T> {
         items = new ArrayList<>();
         items.add(null);
         itemToIndex = new HashMap<>();
-        // TODO: add code as necessary
+
     }
 
     // Here's a method stub that may be useful. Feel free to change or remove it, if you wish.
@@ -86,6 +86,10 @@ public class ArrayHeapMinPQ<T> implements ExtrinsicMinPQ<T> {
 
         if (items.size() == 3) {
             items.remove(START_INDEX);
+            if (items.size() > START_INDEX) {
+                T remainingItem = items.get(START_INDEX).getItem();
+                itemToIndex.put(remainingItem, START_INDEX);
+            }
             return result;
         }
         swap(START_INDEX, items.size() - 1);
