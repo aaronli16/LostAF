@@ -10,6 +10,8 @@ import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 /**
  * Some provided tests for ArrayHeapMinPQ.
  *
@@ -349,6 +351,37 @@ public class ArrayHeapMinPQTests extends BaseTest {
             pq.add("Nancy", -10);
             assertThat(pq.peekMin()).isEqualTo("Nancy");
             assertThat(pq).isValid();
+        }
+        @Test
+        public void testChangePriority() {
+            ArrayHeapMinPQ<String> pq = new ArrayHeapMinPQ<>();
+            pq.add("A", 3.0);
+            pq.add("B", 2.0);
+            pq.add("C", 1.0);
+
+            // Change priority of root
+            pq.changePriority("C", 4.0);
+            assertThat(pq.peekMin()).isEqualTo("B");
+
+            // Change back to minimum
+            pq.changePriority("C", 0.5);
+            assertThat(pq.peekMin()).isEqualTo("C");
+        }
+        @Test
+        public void testBigChangePriority(){
+            ArrayHeapMinPQ<Integer> pq = new ArrayHeapMinPQ<>();
+
+            for (int i = 0; i < 1000; i++) {
+                pq.add(i, 1000.0 - i);
+            }
+
+
+            pq.changePriority(500, 0.0);
+            assertThat((int) pq.peekMin()).isEqualTo(500);
+
+
+            pq.changePriority(500, 200.0);
+            assertThat((int) pq.peekMin()).isNotEqualTo(500);
         }
     }
 

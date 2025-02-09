@@ -39,7 +39,7 @@ public class ArrayHeapMinPQ<T> implements ExtrinsicMinPQ<T> {
 
     @Override
     public void add(T item, double priority) {
-        if (this.contains(item)){
+        if (itemToIndex.containsKey(item)) {
             throw new IllegalArgumentException("Already have item");
         }
         PriorityNode<T> node = new PriorityNode<>(item, priority);
