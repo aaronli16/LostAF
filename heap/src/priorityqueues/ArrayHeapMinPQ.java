@@ -49,10 +49,10 @@ public class ArrayHeapMinPQ<T> implements ExtrinsicMinPQ<T> {
 
     }
 
-    private void percolateUp(int index){
-        while (index > START_INDEX){
+    private void percolateUp(int index) {
+        while (index > START_INDEX) {
             int parentIndex = (index / 2);
-            if (items.get(index).getPriority() < items.get(parentIndex).getPriority()){
+            if (items.get(index).getPriority() < items.get(parentIndex).getPriority()) {
                  swap(index, parentIndex);
                  index = parentIndex;
              } else {
@@ -121,7 +121,7 @@ public class ArrayHeapMinPQ<T> implements ExtrinsicMinPQ<T> {
 
     @Override
     public void changePriority(T item, double priority) {
-        if (!this.contains(item)){
+        if (!this.contains(item)) {
             throw new NoSuchElementException("Item is not in the Heap");
         }
         int index = itemToIndex.get(item);
