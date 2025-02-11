@@ -80,26 +80,24 @@ public class ArrayHeapMinPQ<T> implements ExtrinsicMinPQ<T> {
         if (items.size() <= START_INDEX) {
             throw new NoSuchElementException();
         }
+
         T result = items.get(START_INDEX).getItem();
         itemToIndex.remove(result);
 
-
-        if (items.size() == 3) {
+        if (items.size() == 2) {
             items.remove(START_INDEX);
-            if (items.size() > START_INDEX) {
-                T remainingItem = items.get(START_INDEX).getItem();
-                itemToIndex.put(remainingItem, START_INDEX);
-            }
             return result;
         }
+
+
         swap(START_INDEX, items.size() - 1);
         items.remove(items.size() - 1);
-        this.percolateDown(START_INDEX);
 
+        if (items.size() > START_INDEX) {
+            percolateDown(START_INDEX);
+        }
 
         return result;
-
-
     }
 
     private void percolateDown(int index) {
