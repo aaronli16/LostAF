@@ -39,7 +39,7 @@ public class ArrayHeapMinPQ<T> implements ExtrinsicMinPQ<T> {
 
     @Override
     public void add(T item, double priority) {
-        if (itemToIndex.containsKey(item)) {
+        if (this.contains(item)) {
             throw new IllegalArgumentException("Already have item");
         }
         PriorityNode<T> node = new PriorityNode<>(item, priority);
@@ -82,14 +82,15 @@ public class ArrayHeapMinPQ<T> implements ExtrinsicMinPQ<T> {
         }
 
         T result = items.get(START_INDEX).getItem();
-        itemToIndex.remove(result);
+
 
         if (items.size() == 2) {
             items.remove(START_INDEX);
+            itemToIndex.clear();
             return result;
         }
 
-
+        itemToIndex.remove(result);
         swap(START_INDEX, items.size() - 1);
         items.remove(items.size() - 1);
 
