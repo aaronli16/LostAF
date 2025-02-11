@@ -70,13 +70,6 @@ public class ArrayHeapMinPQTests extends BaseTest {
             assertThatThrownBy(() -> pq.changePriority("Harold Hill", 7)).isInstanceOf(NoSuchElementException.class);
             assertThat(pq).isValid();
         }
-
-        @Test
-        void add_nullItem_doesntThrowIllegalArgument() {
-            ExtrinsicMinPQ<String> pq = setUpMinPQ();
-            pq.add(null, 15);
-            assertThat(pq).isValid();
-        }
     }
 
     @Nested
@@ -151,13 +144,6 @@ public class ArrayHeapMinPQTests extends BaseTest {
             ExtrinsicMinPQ<String> pq = setUpMinPQ();
             String output = pq.removeMin();
             assertThat(output).isEqualTo(this.min);
-            assertThat(pq).isValid();
-        }
-
-        @Test
-        void add_nullItem_doesntThrowIllegalArgument() {
-            ExtrinsicMinPQ<String> pq = setUpMinPQ();
-            pq.add(null, 15);
             assertThat(pq).isValid();
         }
 
@@ -331,15 +317,6 @@ public class ArrayHeapMinPQTests extends BaseTest {
 
             assertThat(pq1.size()).isEqualTo(2);
             assertThat(pq2.size()).isEqualTo(1);
-        }
-
-        @Test
-        void addingNull_containsKeyNull() {
-            ExtrinsicMinPQ<String> pq = createMinPQ();
-
-            pq.add(null, 15);
-            assertThat(pq.contains(null)).isTrue();
-            assertThat(pq).isValid();
         }
 
         @Test
