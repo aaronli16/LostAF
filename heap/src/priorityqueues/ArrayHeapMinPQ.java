@@ -90,9 +90,10 @@ public class ArrayHeapMinPQ<T> implements ExtrinsicMinPQ<T> {
             return result;
         }
 
-        itemToIndex.remove(result);
+
         swap(START_INDEX, items.size() - 1);
         items.remove(items.size() - 1);
+        itemToIndex.remove(result);
 
         if (items.size() > START_INDEX) {
             percolateDown(START_INDEX);
